@@ -52,7 +52,8 @@ dadosPessoais ()
 */
 
 //--------------------------------------------------------------------------------------------
-/* a
+
+
 function somaDosNumeros(numero1, numero2) {
 	soma = numero1 + numero2
 	return soma
@@ -60,8 +61,6 @@ function somaDosNumeros(numero1, numero2) {
 
 const resultado = somaDosNumeros(2, 4)
 console.log (' O resultado da soma é:', resultado)
-
-*/ 
 
 
 /*b 

@@ -61,7 +61,7 @@ const horarioDeEstudo = (periodo) => {
 }
 
 
- horarioDeEstudo(periodoDeEstudo)
+ horarioDeEstudo(periodoDeEstudo) */
 
 /*
 const horarioDeEstudo = (periodo) => {
@@ -86,7 +86,7 @@ const horarioDeEstudo = (periodo) => {
 horarioDeEstudo(periodoDeEstudo)
 */
 
-/*
+
 const generoDofilme = prompt('Qual o genero do filme que irão assistir?')
 const ingressoDofilme = prompt('Qual o valor do ingresso do filme?')
 
@@ -99,7 +99,7 @@ const filmeQueVaiSerAssistido = (genero, ingresso) => {
 }
 
 filmeQueVaiSerAssistido(generoDofilme, ingressoDofilme)
-*/ 
+
 
 /*
 const generoDofilme = prompt('Qual o genero do filme que irão assistir?')
