@@ -33,8 +33,8 @@ const soma = primeiroNumero + segundoNumero
 console.log(soma)*/
 
 //---------------------------------------------------------------------------
-
-/*let idadeUsuario = Number(prompt('Qual é a sua idade?'))
+/*
+let idadeUsuario = Number(prompt('Qual é a sua idade?'))
 let idadeMelhorAmigo = Number(prompt('Qual a idade do seu melhor amigo(a)?'))
 let resultado = idadeUsuario > idadeMelhorAmigo 
 let resultado2 = idadeUsuario - idadeMelhorAmigo
@@ -52,7 +52,7 @@ console.log ('Resto da divisão:', numeroPar % 2)
 
 //---------------------------------------------------------------------------
 
-/*
+
 let idadeEmAnos = Number(prompt('Qual a sua idade em anos?'))
 let idadeEmMeses = idadeEmAnos * 12 
 let idadeEmDias = idadeEmAnos * 365
@@ -61,10 +61,10 @@ let idadeEmHoras = idadeEmDias * 24
 console.log ('Você tem', idadeEmMeses, 'meses de idade!')
 console.log ('Voce tem', idadeEmDias, 'dias de idade!')
 console.log ('Você tem', idadeEmHoras, 'horas de idade!')
-*/
+
 
 //---------------------------------------------------------------------------
-
+/*
 let numero1 = Number(prompt('Digite um número!'))
 let numero2 = Number(prompt('Digite outro número!'))
 let resto1 = numero1 % numero2
@@ -79,5 +79,4 @@ console.log ('O primeiro número é igual ao segundo número?', numero1 === nume
 console.log ('O primeiro número é divisivel pelo segundo?', resto1 === numero1 / resto1)
 console.log ('O segundo número é divisivel pelo primeiro?', resto1 === numero2 / resto1)
 
-
-
+*/
