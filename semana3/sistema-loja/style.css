@@ -1,0 +1,128 @@
+body {
+    background-color: #F2F2F2;
+    text-align: center;
+    margin: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    color:#79c282;
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 15px;
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+h2 {
+    color:#79c282;
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 15px;
+    font-size: 35px;
+}
+
+.corCaeseGatos{
+    color: #8C8279;
+    font-weight: bold;
+}
+
+#menus {
+    color: black;
+    margin: 15px;
+    padding: 20px;
+    background-color: #AED9A7;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px
+}
+
+table{
+    margin: auto;
+    font-size: 18px;  
+}
+
+td {
+    background-color: white;
+    padding: 50px; 
+    border-radius: 2px;  
+}
+
+th {
+    margin: 25px;
+    font-size: 18px;
+    padding: 10px;
+}
+
+    
+form {
+        background-color: white;
+        padding: 15px;
+        border-radius: 5px;
+        margin: 15px;
+        font-size: 18px;
+        text-align: unset;
+}
+
+
+.textos {
+    color:black;
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 15px;
+    font-size: 25px;
+
+}
+
+.textosfuncionarios{
+    color:black;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 25px;
+    font-size: 18px;
+    font-weight: bolder;
+
+}
+
+.corFuncionarios {
+    color: #79c282;
+    font-weight: bold;
+}
+
+.separacaoAddProduto{
+    padding: 15px;
+    font-weight: normal;
+    
+}
+
+footer {
+    color:black;
+    margin: 10px;
+    padding: 10px;
+    background-color: #8C8279;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    
+}
+
+.tamanho{
+    height: 150px;
+    padding: 15px;
+}
+
+
+.fotoinicial {
+    height: 350px;
+     
+}
+
+.imagensprodutos {
+    height: 250px;
+    padding-bottom: 20px;
+}
+
