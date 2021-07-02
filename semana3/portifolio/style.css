@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+body {
+    font-family: Open Sans;
+    background-color: #D7D7D9;
+    
+}
+
+header {
+    text-align: center;
+    font-size: 20px;
+    font-weight: normal;
+    background-color: #184059;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    
+    
+}
+
+.espaçamento-menu{
+  margin: 15px;
+  color:white;
+  text-decoration: none;
+}
+
+.espaçamento-menu:hover {
+    background-color: #5D8AA6;
+    padding: 10px;   
+}
+
+.espacamento-formulario {
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+main {
+    font-size: 18px;
+    text-align: center;
+    background-color: white;
+    padding: 5px;
+    margin-bottom: 10px;
+   
+}
+
+h2 {
+    font-size: 35px;
+    color: #BF7B3F;
+    font-weight: bolder;
+}
+
+h3 {
+    color:#184059;
+    font-size: 35px;
+}
+
+p {
+    font-size: 22px;
+    font-weight: normal;
+}
+
+.cor-para-saber-mais {
+    color: #BF7B3F;
+    font-weight: bolder;
+    padding: 5px;
+}
+
+footer {
+    text-align: center;
+    background-color: #5D8AA6;
+    padding: 1px;
+    color:white;
+    text-decoration: none;
+}
+
+
+/* Redimensionamento imgs */ 
+
+.img-redmensionada {
+    height: 220px;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.img-redmensionada-portfolio {
+    height: 350px;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.logos {
+    padding: 10px;
+    text-decoration: none;
+    height: 70px;
+
+}
+
+
