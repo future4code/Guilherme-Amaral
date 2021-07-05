@@ -1,0 +1,55 @@
+* {
+    margin: 0%;
+    padding: 0%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-size: 16pt;
+    
+}
+
+header{
+    display:flex;
+    height: 25px;
+    background-color: palevioletred;
+    justify-content: space-between;
+    padding: 10px;
+    
+}
+
+div {
+    display: flex;
+    justify-content: flex-start;
+    align-items:center;
+   
+}
+
+main {
+    height: 100vh;
+    width: 200px;
+    background-color: pink;  
+}
+
+.centro {
+    display:flex;
+    
+}
+
+
+p, button {
+    margin-left: 5px;
+    
+}
+
+
+img {
+    height: 15px;
+}
+
+footer {
+    background-color: palevioletred;
+    text-align: center;
+    padding: 15px;
+}
