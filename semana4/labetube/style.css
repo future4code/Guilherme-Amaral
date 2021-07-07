@@ -19,11 +19,14 @@ header {
 main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr; 
+    justify-items: center;
 }
 
 video {
     height: 150px;
+    
 }
+
 
 .card-video{
     display: flex; 

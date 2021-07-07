@@ -31,7 +31,7 @@ video {
     height: 450px;
     padding: 25px;
     display: flex;
-   
+    border-radius: 5px; 
 }
 
 div {
