@@ -44,7 +44,7 @@ const usuarios = [
   //Vai ser impresso no console nome e apelido de Amanda e lais, Chijo não aparecer
 
 //-----------------------------------------------------------------------------------------------
-
+/*
 const pets = [
     { nome: "Lupin", raca: "Salsicha"},
     { nome: "Polly", raca: "Lhasa Apso"},
@@ -127,4 +127,32 @@ const compreProdutos = apenasYpe.map ((item, index, array) => {
 })
 
 console.log (apenasYpe)
+
+*/
+
+  const tarefas = [
+    { titulo: "Fazer Remember", status: "done", tempo: 30 },
+    { titulo: "Fazer Challange", status: "todo", tempo: 30 },
+    { titulo: "Assistir Aula", status: "done", tempo: 120 },
+    { titulo: "Fazer almoço nutritivo", status: "done", tempo: 60 },
+    { titulo: "Ler atentamente exercícios do dia", status: "doing", tempo: 20 },
+    { titulo: "Fazer exercício do dia", status: "doing", tempo: 180 },
+    { titulo: "Fazer desafio", status: "doing", tempo: 60 },
+    { titulo: "Ir para o Stand Up", status: "todo", tempo: 30 },
+    { titulo: "Enviar Feedback", status: "todo", tempo: 15 },
+    { titulo: "Enviar Exercício", status: "todo", tempo: 15 },
+    { titulo: "Jogar Videogame", status: "todo", tempo: 120 },
+    { titulo: "Assistir Novela", status: "todo", tempo: 90 }
+ ]
+
+let tarefasFinalizadas = tarefas.filter ((item, index, array) => {
+  return item.status.includes("done")
+})
+
+let tarefas2 = tarefasFinalizadas.map ((item,index,array) => {
+  return item.titulo
+})
+
+console.log(tarefas2)
+
 
