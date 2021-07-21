@@ -24,14 +24,8 @@ class App extends React.Component {
         {
           id: Date.now(),
           texto: 'Lavar o carro',
-          completa: false 
+          completa: false
         },
-
-        {
-          id: Date.now(),
-          texto: 'Limpar a casa',
-          completa: true
-        }
       ],
 
       inputValue: '',
@@ -52,14 +46,37 @@ class App extends React.Component {
   }
 
   criaTarefa = () => {
+    const novaTarefa = {
 
+      id: Date.now(), 
+      texto: this.state.inputValue,
+      completa: false 
+    }
+
+    const copiaDoEstado = [... this.state.tarefas, novaTarefa]
+    this.setState ({tarefas: copiaDoEstado})
+    this.setState ({inputValue: ''})
   }
 
   selectTarefa = (id) => {
-
+    const novaListaDeTarefas = this.state.tarefas.map ((tarefas) => {
+      if (id === tarefas.id) {
+        const alteracaoTarefas = {
+          ...tarefas,
+          completa: !tarefas.completa
+        }
+        return alteracaoTarefas }
+        else {
+          return tarefas
+        }
+    })
+    this.setState({tarefas: novaListaDeTarefas})
+    console.log(novaListaDeTarefas)
   }
 
+
   onChangeFilter = (event) => {
+    this.setState({filtro: event.target.value})
 
   }
 
