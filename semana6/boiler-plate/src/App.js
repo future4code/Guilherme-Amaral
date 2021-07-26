@@ -27,7 +27,7 @@ class App extends React.Component {
           completa: false
         },
       ],
-
+ 
       inputValue: '',
       filtro: 'pendentes'
     }
