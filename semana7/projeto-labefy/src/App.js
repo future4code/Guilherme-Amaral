@@ -11,7 +11,7 @@ color: white;
 border: solid 1px chartreuse;
 box-shadow: 1px 1px 2px chartreuse;
 border-radius: 5px;
-width: 450px;
+width: 1000px;
 margin: 30vh auto;
 text-align: center;
 padding: 20px;
@@ -19,7 +19,7 @@ padding: 20px;
 
 const CardPlayLists = styled.div`
 display: flex;
-justify-content: space-between;
+justify-content:center;
 align-items: center;
 border-bottom: solid 1px #3f3f3f;
 padding-right: 5px;
@@ -30,12 +30,14 @@ margin: 7px;
 const CardAddPlaylist = styled.div`
 display: flex;
 justify-content: center;
+align-items: center;
 padding: 20px;
 `
 const Button = styled.div`
 text-align: center;
+align-items: center;
 margin-left: 10px;
-padding: 5px;
+padding: 3px;
 border: 1px solid chartreuse;
 border-radius: 5px;
 cursor: pointer;
@@ -71,14 +73,17 @@ margin: 7px;
 const AddMusics = styled.div`
 display: flex;
 justify-content: center;
-flex-direction: column;
+flex-direction: row;
 padding: 20px;
+align-items: center;
 `
 const InputAddMusics = styled.input`
 margin: 7px;
 padding: 7px;
 border-radius: 5px;
 text-align: center;
+align-items: center;
+align-items: center;
 `
 
 const ButtonMusic = styled.div`
@@ -99,6 +104,7 @@ class App extends React.Component {
     name: "", 
     artist: "",
     url: "",
+    music: []
     
   }
 
@@ -219,12 +225,37 @@ class App extends React.Component {
     })
     
     .then ((res) => {
-      console.log (res.data)
+      this.setState({music: res.data.result.tracks})
+  
     })
 
     .catch ((err) => {
       console.log (err.data)
     })
+  }
+
+  removeTrackFromPlaylist = (trackId, playlist) => {
+
+    axios.delete (`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${trackId}/tracks/${trackId}`, {
+
+      headers: {
+
+        Authorization: "guilherme-amaral-lovelace"
+
+      }
+    })
+  
+    .then ((res) => {
+      alert ('removido com sucesso')
+      console.log (res)
+  
+    })
+
+    .catch ((err) => {
+      alert ('erro')
+      console.log (err.data)
+    })
+
   }
 
   onChangeInputName= (event) => {
@@ -266,13 +297,22 @@ class App extends React.Component {
             placeholder="URL da música"
           />
 
-          <ButtonMusic onClick={() => this.addTrackToPlaylist (playlist.id)}>Adicionar</ButtonMusic>
+          <Button onClick={() => this.addTrackToPlaylist (playlist.id)}>Adicionar</Button>
         </AddMusics>
+
         <ButtonX onClick={() => this.deletePlaylist(playlist.id)}>X</ButtonX>
         <ButtonPlayLists onClick={ () => this.getPlaylistTracks (playlist.id)}>Músicas</ButtonPlayLists>
 
-    
       </CardPlayLists>
+    })
+
+    const musicList = this.state.music.map ((music) => {
+      return <div key={music.id}>
+        <p>Música:  {music.name}</p>
+        <p>Artista:{music.artist}</p>
+        <p>URL: {music.url}</p>
+        <ButtonX onClick={() => this.removeTrackFromPlaylist (music.id)}>X</ButtonX>
+      </div>
     })
 
     return (
@@ -299,9 +339,7 @@ class App extends React.Component {
         </div>
 
         {showPlayList}
-        
-       
-
+        {musicList}
       </ContaninerPrincipal>
     )
   }
