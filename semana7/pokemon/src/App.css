@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
+
+.App {
+  font-family: "Bangers", cursive;
+  color: red;
+  text-align: center;
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  align-items: center;
+  border: solid 1px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px red;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+h1 {
+  color: black;
+}
+
+select {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+img {
+  padding: 30px;
+}
