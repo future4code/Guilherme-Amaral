@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-class PokeCard extends React.Component {
+function PokeCard () {
   state = {
     // valor do estado que guarda infos e foto do pokemon
     pokemon: {}
@@ -40,7 +40,7 @@ class PokeCard extends React.Component {
       });
   };
 
-  render() {
+  {
     const pokemon = this.state.pokemon;
 
     return (

@@ -3,7 +3,19 @@ import axios from 'axios'
 import PokeCard from './PokeCard/index.js'
 import styled from 'styled-components'
 
-class App extends React.Component {
+
+const ContainerPrincipal = styled.div `
+text-align: center;
+border: 1px solid red;
+border-radius: 5px;
+width: 300px;
+height: 300px;
+padding: 15px;
+margin: 130px auto;
+`
+
+function App () {
+
   state = {
     // lista de pokemons que está sendo guardada no estado
     pokeList: [],
@@ -11,6 +23,8 @@ class App extends React.Component {
     // escolhe um nome no dropdown
     pokeName: ""
   };
+
+  const 
 
   // método que roda após a montagem do componente
   componentDidMount = () => {
@@ -30,7 +44,7 @@ class App extends React.Component {
     this.setState({ pokeName: event.target.value });
   };
 
-  render() {
+  {
     return (
       <ContainerPrincipal>
         {/* evento onChange chama função toda vez que o usuário 
@@ -55,13 +69,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-const ContainerPrincipal = styled.div `
-text-align: center;
-border: 1px solid red;
-border-radius: 5px;
-width: 300px;
-height: 300px;
-padding: 15px;
-margin: 120px auto;
-`
