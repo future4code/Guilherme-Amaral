@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 function PokeCard () {
-  state = {
-    // valor do estado que guarda infos e foto do pokemon
-    pokemon: {}
-  };
+
+    const [pokemon, setPokemon] = useState ({})
+ 
 
   // método que roda após a montagem do componente
   componentDidMount() {

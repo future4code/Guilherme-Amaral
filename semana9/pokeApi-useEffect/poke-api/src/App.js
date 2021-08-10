@@ -1,7 +1,7 @@
-import React from 'react'
 import axios from 'axios'
 import PokeCard from './PokeCard/index.js'
 import styled from 'styled-components'
+import React, { useEffect, useState } from "react"
 
 
 const ContainerPrincipal = styled.div `
@@ -15,30 +15,20 @@ margin: 130px auto;
 `
 
 function App () {
+  const [pokeList, setPokeList] = useState ([])
+  const [pokeName, setPokeName] = useState ("")
 
-  state = {
-    // lista de pokemons que está sendo guardada no estado
-    pokeList: [],
-    // nome do pokemon guardado no estado, assim que o usuário
-    // escolhe um nome no dropdown
-    pokeName: ""
-  };
-
-  const 
-
-  // método que roda após a montagem do componente
-  componentDidMount = () => {
-    // função axios que está batendo na API e buscando 151 pokemons
+  useEffect (() => { 
     axios
-      .get("https://pokeapi.co/api/v2/pokemon/?limit=151")
-      .then(response => {
-        // função que está setando no estado os 151 pokemons
-        this.setState({ pokeList: response.data.results });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
+    .get("https://pokeapi.co/api/v2/pokemon/?limit=151")
+    .then(response => {
+      
+      this.setState({ pokeList: response.data.results });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  })
 
   changePokeName = event => {
     this.setState({ pokeName: event.target.value });
