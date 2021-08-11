@@ -23,16 +23,8 @@ align-items: center;
 function App () {
 
   const [tela, setTela] = useState ('TelaMatch')
-  const [perfils, setPerfils] = useState ('')
+  const [perfils, setPerfils] = useState ({})
 
-  const mostrarPerfilsNaTela = perfils.map ((perfil) => {
-
-    return <div>
-      <p>{perfil.name}</p>
- 
-    </div>
-  })
-  
   const escolheTela = () => {
 
     switch (tela) {
@@ -59,13 +51,15 @@ function App () {
 
     .then((res) => {
       setPerfils (res.data.profile)
+      console.log (res.data.profile)
     })
     .catch((err) => {
-      console.log(err.data);
+      alert (err.data);
     });
   }
 
-  
+
+
   return (
 
     <ContainerApp>
@@ -74,10 +68,10 @@ function App () {
         <button onClick={irParaTelaInicial}>home</button>
         <button onClick={irParaTelaMatch}>macths</button>
       </ContainerHeader>
-      {escolheTela()}
-      {mostrarPerfilsNaTela}
-
-      
+      {escolheTela()} 
+        <div>
+          <button onClick={getProfileToChoose}>Perfil</button>
+        </div>
     </ContainerApp>
   )
 }
