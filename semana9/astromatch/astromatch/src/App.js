@@ -25,6 +25,7 @@ function App () {
   const [tela, setTela] = useState ('TelaMatch')
   const [perfils, setPerfils] = useState ({})
 
+
   const escolheTela = () => {
 
     switch (tela) {
@@ -47,18 +48,17 @@ function App () {
   }
 
   const getProfileToChoose = () => {
+
     axios.get ('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/person')
 
     .then((res) => {
-      setPerfils (res.data.profile)
-      console.log (res.data.profile)
+      console.log (res.data)
     })
     .catch((err) => {
       alert (err.data);
     });
+  
   }
-
-
 
   return (
 
@@ -68,10 +68,9 @@ function App () {
         <button onClick={irParaTelaInicial}>home</button>
         <button onClick={irParaTelaMatch}>macths</button>
       </ContainerHeader>
-      {escolheTela()} 
-        <div>
-          <button onClick={getProfileToChoose}>Perfil</button>
-        </div>
+      {escolheTela()}
+      <button onClick={getProfileToChoose()}>Perfil</button>
+   
     </ContainerApp>
   )
 }

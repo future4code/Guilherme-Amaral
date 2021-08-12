@@ -1,3 +1,5 @@
+
+import axios from 'axios'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -14,6 +16,18 @@ margin: 15px auto;
 
 function TelaMacth() {
 
+    const getMatches = () => {
+
+        axios.get ('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/matches')
+
+        .then((res) => {
+            console.log (res.data)
+          })
+        .catch((err) => {
+            alert (err.data);
+          });
+    }
+
     return (
 
         <div>
@@ -27,6 +41,9 @@ function TelaMacth() {
                 <p>foto</p>
                 <p>Nome</p>
             </ContainerMatch>
+        
+            {getMatches()}
+             
 
         </div>
 
