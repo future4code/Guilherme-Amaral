@@ -5,22 +5,35 @@ import styled from 'styled-components'
 import axios from 'axios';
 
 const ContainerApp = styled.div `
+background-color: white;
 text-align: center;
 border: 1px solid black;
-width: 500px;
-height: 600px;
-margin: 50px auto;
+border-radius: 15px;
+width: 650px;
+height: 610px;
+margin: 20px auto;
 `
 
 const ContainerHeader = styled.div `
+border-radius: 15px 15px 0px 0px;
+background-color: #FE4772;
 display: flex;
 justify-content: space-around;
 text-align: center;
 text-align: center;
 align-items: center;
+color: white;
+font-size: 18px;
 `
-
-
+const Buttonss = styled.button `
+margin: 10px;
+border: solid 1px #FE4772;
+background-color: #FE4772;
+color: white;
+border-bottom: 2px solid white;
+cursor: pointer;
+font-size: 17px;
+`
 
 function App () {
 
@@ -54,10 +67,10 @@ function App () {
     axios.get ('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/person')
 
     .then((res) => {
-      console.log (res)
       setPerfils (res.data.profile)
     })
     .catch((err) => {
+      alert (err.data)
     });
   }
 
@@ -86,7 +99,7 @@ function App () {
       getProfileToChoose()
     })
     .catch((err) => {
-      
+      alert (err.data)
     });
   }
 
@@ -110,7 +123,7 @@ function App () {
      
     })
     .catch((err) => {
-      alert (err)
+      alert (err.data)
     });
   }
 
@@ -120,7 +133,6 @@ function App () {
 
 
     .then((res) => {
-    console.log (res)
     setListaMatch (res.data)
     })
 
@@ -136,9 +148,9 @@ function App () {
 
       <ContainerHeader>
         <h3>Astromatch</h3>
-        <button onClick={irParaTelaInicial}>home</button>
-        <button onClick={irParaTelaMatch}>macths</button>
-        <button onClick={clear}>limpar</button>
+        <Buttonss onClick={irParaTelaInicial}>Home</Buttonss>
+        <Buttonss onClick={irParaTelaMatch}>Macths</Buttonss>
+        <Buttonss onClick={clear}>Reset</Buttonss>
       </ContainerHeader>
 
       {escolheTela()}

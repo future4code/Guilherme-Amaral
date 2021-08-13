@@ -3,24 +3,32 @@ import styled from 'styled-components'
 
 const ContainerProfile = styled.div `
 text-align: center;
-border: 1px solid black;
-width: 320px;
+width: 500px;
 height: 350px;
-margin: 50px auto;
+margin: 25px auto;
 `
 
 const Img = styled.img `
-width: 250px;
-height: 150px;
-padding: 20px;
+width: 400px;
+height: 300px;
 border-radius: 30px;
+box-shadow: 2px 2px 5px 0px #555;
 `
 
 const ContainerButtons = styled.div `
 text-align: center;
 `
+
 const Buttons = styled.button `
-margin: 10px;
+margin: 40px 40px auto;
+padding: 20px 30px;
+border-radius: 20px;
+border: 1px solid #FE4772;;
+background-color: #FE4772;
+color: white;
+box-shadow: 0px 0px 3px 0px #555;
+font-size: 25px;
+cursor: pointer;
 `
 
 function TelaInicial (props) {
@@ -29,17 +37,16 @@ function TelaInicial (props) {
 
         <div>
 
-        <ContainerProfile>
-        <Img src={props.perfils.photo}/>
-          <p>{props.perfils.name}</p>
-          <p>{props.perfils.age}</p>
-          <p>{props.perfils.bio}</p>
-        </ContainerProfile>
+          <ContainerProfile>
+            <Img src={props.perfils.photo}/>
+            <p><strong>{props.perfils.name}, {props.perfils.age}</strong></p> 
+            <p>{props.perfils.bio}</p>
+          </ContainerProfile>
 
-        <ContainerButtons>
-        <Buttons onClick={props.choosePerson}>SIM</Buttons>
-        <Buttons onClick={props.choosePerson2}>NÃO</Buttons>
-      </ContainerButtons>
+          <ContainerButtons>
+            <Buttons onClick={props.choosePerson}>❤</Buttons>
+            <Buttons onClick={props.choosePerson2}>✖</Buttons>
+          </ContainerButtons>
     
         </div>
     )

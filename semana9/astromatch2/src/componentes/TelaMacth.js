@@ -3,38 +3,45 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 const ContainerMatch = styled.div `
-display: flex;
-justify-content: space-around;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
 text-align: center;
-text-align: center;
+justify-content: space-between;
 align-items: center;
-border: 1px solid black;
-width: 300px;
-margin: 15px auto;
 `
+
 const Img = styled.img `
-width: 110px;
-height: 110px;
-padding: 20px;
-border-radius: 30px;
+width: 80px;
+height: 70px;
+border-radius: 20px;
+margin: 20px auto;
+box-shadow: 0px 0px 3px 0px #555;
+`
+
+const CardMacth = styled.div `
+align-items: center;
+text-align: center;
+justify-content: center;
+`
+
+const Text = styled.div `
+font-size: bolder;
 `
 
 function TelaMacth(props) {
 
     const [listTela, setListTela] = useState ([])
-    console.log(props.listaMatch)
 
     const getMatches = () => {
 
         axios.get ('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/matches')
 
         .then((res) => {
-            console.log (res.data.matches)
-            setListTela (res.data.matches)
-          })
+        setListTela (res.data.matches)
+        })
         .catch((err) => {
-            alert (err.data);
-          });
+        alert (err.data);
+        });
     }
 
     useEffect(() => {
@@ -45,17 +52,17 @@ function TelaMacth(props) {
 
       
     const ListaNaTela = listTela.map ((user) => {
-        return <div key={user.id}>
-            <Img src={user.photo} />
-            <p>{user.name}</p>
-        </div>
+        return <CardMacth key={user.id}>
+            <Img src={user.photo}/>
+            <strong><p>{user.name}</p></strong>
+            </CardMacth>
     })
     
     return (
 
-        <div>       
+        <ContainerMatch>       
             {ListaNaTela}  
-        </div>
+        </ContainerMatch>
 
     )
 }
