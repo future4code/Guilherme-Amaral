@@ -38,11 +38,11 @@ function HomePage() {
     const history = useHistory()
 
     const irParaViagens = () => {
-        history.push('/ListTripsPage')
+        history.push('/trips/list')
     }
 
     const irParaAreaDeAdministrador = () => {
-        history.push('/LoginPage')
+        history.push('/login')
     }
 
 

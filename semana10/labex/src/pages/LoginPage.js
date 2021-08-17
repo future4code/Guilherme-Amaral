@@ -50,7 +50,7 @@ function LoginPage() {
     }
 
     const irParaPaginaDeAdministrador = () => {
-        history.push('/AdminHomePage')
+        history.push('/admin/trips/list')
     }
 
     return (

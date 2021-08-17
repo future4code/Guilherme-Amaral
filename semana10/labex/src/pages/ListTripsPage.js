@@ -47,7 +47,7 @@ function ListTripsPage() {
     }
 
     const irParaPaginaDeInscricao = () => {
-        history.push('/ApplicationFormPage')
+        history.push('/trips/application')
     }
 
     return (

@@ -63,15 +63,15 @@ function AdminHomePage() {
     }
 
     const criarViagem = () => {
-        history.push('/CreateTripPage')
+        history.push('/admin/trips/create')
     }
 
     const logout = () => {
-        history.push('/LoginPage')
+        history.push('/login')
     }
 
     const irParaDetalhesViagens = () => {
-        history.push('/TripDetailsPage')
+        history.push('/admin/trips/:id')
     }
 
     return (
