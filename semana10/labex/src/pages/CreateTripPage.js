@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import {useHistory} from "react-router-dom"
 
 const Titulo = styled.h1`
 margin: 40px;
@@ -22,6 +23,7 @@ border: 1px solid #EA744D;
 border-radius: 8px;
 cursor: pointer;
 width: 190px;
+box-shadow: 0px 2px 5px 0px #7D3996;
 `
 
 const CardCandidatura = styled.div `
@@ -47,6 +49,12 @@ border-radius: 5px;
 `
 function CreateTripPage() {
 
+    const history = useHistory()
+
+    const voltar = () => {
+        history.goBack()
+    }
+
     return (
 
         <div>
@@ -66,7 +74,7 @@ function CreateTripPage() {
         </CardCandidatura>
 
         <ContainerButtons>
-            <Buttons>Voltar</Buttons>
+            <Buttons onClick={voltar}>Voltar</Buttons>
             <Buttons>Criar</Buttons>
         </ContainerButtons>
         

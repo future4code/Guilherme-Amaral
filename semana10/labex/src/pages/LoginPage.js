@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import {useHistory} from "react-router-dom"
 
 const Titulo = styled.h1`
 margin: 40px;
@@ -22,6 +23,7 @@ border: 1px solid #EA744D;
 border-radius: 8px;
 cursor: pointer;
 width: 190px;
+box-shadow: 0px 2px 5px 0px #7D3996;
 `
 
 const CardLogin= styled.div `
@@ -29,6 +31,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
+margin-top: 130px;
 `
 const Inputs = styled.input `
 padding: 10px;
@@ -39,6 +42,16 @@ border-radius: 5px;
 `
 
 function LoginPage() {
+
+    const history = useHistory()
+
+    const voltar = () => {
+        history.goBack()
+    }
+
+    const irParaPaginaDeAdministrador = () => {
+        history.push('/AdminHomePage')
+    }
 
     return (
 
@@ -51,8 +64,8 @@ function LoginPage() {
             </CardLogin>
 
             <ContainerButtons>
-                <Buttons>Voltar</Buttons>
-                <Buttons>Entrar</Buttons>
+                <Buttons onClick={voltar}>Voltar</Buttons>
+                <Buttons onClick={irParaPaginaDeAdministrador}>Entrar</Buttons>
             </ContainerButtons>
         </div>
     )

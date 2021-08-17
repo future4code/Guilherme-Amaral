@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import {useHistory} from "react-router-dom"
 
 const Titulo = styled.h1`
 margin: 40px;
@@ -34,9 +35,20 @@ border: 1px solid #EA744D;
 border-radius: 8px;
 cursor: pointer;
 width: 190px;
+box-shadow: 0px 2px 5px 0px #7D3996;
 `
 
 function ListTripsPage() {
+
+    const history = useHistory()
+
+    const voltar = () => {
+        history.goBack()
+    }
+
+    const irParaPaginaDeInscricao = () => {
+        history.push('/ApplicationFormPage')
+    }
 
     return (
         <div>
@@ -52,8 +64,8 @@ function ListTripsPage() {
             </CardViagens>
 
             <ContainerButtons>
-                <Buttons>Voltar</Buttons>
-                <Buttons>Inscrever-se</Buttons>
+                <Buttons onClick={voltar}>Voltar</Buttons>
+                <Buttons onClick={irParaPaginaDeInscricao}>Inscrever-se</Buttons>
             </ContainerButtons>
 
         </div>

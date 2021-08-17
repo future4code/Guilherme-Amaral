@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from '../img/logo.png'
 import styled from 'styled-components'
+import {useHistory} from "react-router-dom"
 
 const Logo = styled.img `
 height: 300px;
@@ -29,9 +30,21 @@ color: white;
 border: 1px solid #EA744D;
 cursor: pointer;
 width: 200px;
+box-shadow: 0px 2px 5px 0px #7D3996;
 `
 
 function HomePage() {
+
+    const history = useHistory()
+
+    const irParaViagens = () => {
+        history.push('/ListTripsPage')
+    }
+
+    const irParaAreaDeAdministrador = () => {
+        history.push('/LoginPage')
+    }
+
 
     return (
 
@@ -41,8 +54,8 @@ function HomePage() {
             </ContainerLogo>
 
             <ContainerButtons>
-                <Buttons>Ver Viagens</Buttons>
-                <Buttons>Area de Administrador</Buttons>
+                <Buttons onClick={irParaViagens}>Ver Viagens</Buttons>
+                <Buttons onClick={irParaAreaDeAdministrador}>Area de Administrador</Buttons>
             </ContainerButtons>
         </div>
 
