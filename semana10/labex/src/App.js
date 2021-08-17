@@ -1,24 +1,29 @@
 import React from 'react'
 import HomePage from './pages/HomePage'
+import ListTripsPage from './pages/ListTripsPage';
+import ApplicationFormPage from './pages/ApplicationFormPage';
+import LoginPage from './pages/LoginPage';
+import AdminHomePage from './pages/AdminHomePage';
+import CreateTripPage from './pages/CreateTripPage';
+import TripDetailsPage from './pages/TripDetailsPage';
 import styled from 'styled-components';
 
-const Header = styled.div `
-background-color: #7D3996;
-padding: 10px;
-color: white;
-`
+
 
 function App() {
 
   return (
 
     <div>
-     <Header>
-      <p>LabeX</p>
-     </Header>
-
+  
       <HomePage />
-   
+      <ListTripsPage />
+      <ApplicationFormPage />
+      <LoginPage />
+      <AdminHomePage />
+      <CreateTripPage />
+      <TripDetailsPage />
+
     </div>
   );
 }

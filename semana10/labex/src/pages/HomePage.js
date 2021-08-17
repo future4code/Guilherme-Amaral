@@ -23,10 +23,12 @@ margin: 10px;
 const Buttons = styled.button `
 margin: 40px 20px ;
 padding: 15px;
-background-color: #7D3996;
+border-radius: 8px;
+background-color: #EA744D;
 color: white;
-border: 1px solid #7D3996;
+border: 1px solid #EA744D;
 cursor: pointer;
+width: 200px;
 `
 
 function HomePage() {
