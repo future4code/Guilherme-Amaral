@@ -59,7 +59,7 @@ function TripDetailsPage() {
 
         <div>
 
-            <Titulo>Viagem</Titulo>
+            <Titulo>Viagens</Titulo>
 
             <CardViagem>
                 <TextosCard>Nome:</TextosCard>

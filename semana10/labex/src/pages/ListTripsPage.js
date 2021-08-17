@@ -38,7 +38,7 @@ width: 190px;
 box-shadow: 0px 2px 5px 0px #7D3996;
 `
 
-function ListTripsPage() {
+function ListTripsPage(props) {
 
     const history = useHistory()
 
@@ -50,6 +50,8 @@ function ListTripsPage() {
         history.push('/trips/application')
     }
 
+    console.log (props.viagens)
+    
     return (
         <div>
             
