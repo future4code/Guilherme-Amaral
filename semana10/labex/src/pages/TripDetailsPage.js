@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {useHistory} from "react-router-dom"
+import axios from 'axios'
 
 const Titulo = styled.h1`
 margin: 40px;
@@ -47,7 +48,7 @@ box-shadow: 0px 2px 5px 0px #7D3996;
 `
 
 
-function TripDetailsPage() {
+function TripDetailsPage(props) {
 
     const history = useHistory()
 
@@ -58,8 +59,8 @@ function TripDetailsPage() {
     return (
 
         <div>
-
-            <Titulo>Viagens</Titulo>
+    
+            <Titulo>Viagem</Titulo>
 
             <CardViagem>
                 <TextosCard>Nome:</TextosCard>

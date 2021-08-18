@@ -63,13 +63,23 @@ function CreateTripPage() {
 
         <CardCandidatura>
 
-            <Inputs type="text" placeholder="Nome"/>
+            <Inputs type="text" 
+            placeholder="Nome"
+            />
+
             <Select>
                 <option>Escolha um planeta</option>
             </Select>
+
             <Inputs type="date" />
-            <Inputs type="text" placeholder="Descrição"/>
-            <Inputs type="number" placeholder="Duração em dia" />
+
+            <Inputs type="text" 
+            placeholder="Descrição"
+            />
+
+            <Inputs type="number"
+             placeholder="Duração em dia"
+            />
            
         </CardCandidatura>
 
