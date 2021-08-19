@@ -27,7 +27,7 @@ width: 190px;
 box-shadow: 0px 2px 5px 0px #7D3996;
 `
 
-const CardLogin= styled.div `
+const CardLogin= styled.form`
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -61,7 +61,7 @@ function LoginPage() {
         setSenha (event.target.value)
     }
 
-    const login = () => {
+    const login = (event) => {
 
         const body = {
             email: email,
@@ -77,6 +77,8 @@ function LoginPage() {
         .catch ((err) => {
             console.log('deu errado', err)
         })
+
+        event.preventDefault()
     }
 
     return (
@@ -84,23 +86,28 @@ function LoginPage() {
         <div>
             <Titulo>Login</Titulo>
 
-            <CardLogin>
+            <CardLogin onSubmit={login}>
 
                 <Inputs onChange={onChangeInputEmail}
                 value={email} 
-                type="text" 
-                placeholder="E-mail"/>
+                type={"email"}
+                placeholder="E-mail"
+                required
+                />
 
-                <Inputs type="text" 
+                <Inputs type="password" 
                 onChange={onChangeInputSenha} 
                 value={senha} 
-                placeholder="Senha" />
+                placeholder="Senha"
+                required 
+                />
+
+            <Buttons>Enviar</Buttons>
 
             </CardLogin>
 
             <ContainerButtons>
                 <Buttons onClick={voltar}>Voltar</Buttons>
-                <Buttons onClick={login}>Enviar</Buttons>
             </ContainerButtons>
         </div>
     )

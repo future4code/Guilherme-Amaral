@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import {useHistory} from "react-router-dom"
+import {useHistory, useParams} from "react-router-dom"
+import useForm from '../hooks/useForm'
 import axios from 'axios'
-import { select } from 'async'
 
 const Titulo = styled.h1`
 margin: 40px;
@@ -29,7 +29,7 @@ width: 190px;
 box-shadow: 0px 2px 5px 0px #7D3996;
 `
 
-const CardCandidatura = styled.div `
+const CardCandidatura = styled.form `
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -54,98 +54,145 @@ border-radius: 5px;
 
 function ApplicationFormPage (props) {
 
+    const params = useParams() 
+
+    const {form, onChange, cleanFields} = useForm ({
+
+        name: "", 
+        age: "", 
+        applicationText: "", 
+        profession: "", 
+        country: ""
+    })
+
+    const cadastrarCandidato = (event) => {
+
+        event.preventDefault()
+        console.log ('form enviado', form)
+        cleanFields()
+
+        const body = {
+
+            name: form.name, 
+            age: form.age, 
+            applicationText: form.applicationText, 
+            profession: form.profession, 
+            country: form.country
+        }
+
+        axios.post (`https://us-central1-labenu-apis.cloudfunctions.net/labeX/guilherme-amaral-lovelace/trips/${params.id}/apply`, body, {
+
+        headers: {
+
+            "Content-Type": "application/json"
+        }
+
+        })
+
+        .then ((res) => {
+            console.log ('foi', res.data)
+            cleanFields()
+        })
+        .catch((err) => {
+            console.log (err)
+        })
+
+    }
+
     const history = useHistory()
 
     const voltar = () => {
         history.goBack()
     }
 
-    const [escolhaPais, setEscolhaPais] = useState([])
+  
     const [InputPlaneta, setInputPlaneta] = useState("")
-    const [InputNome, setInputNome] = useState("")
-    const [InputIdade, setInputIdade] = useState("")
-    const [InputTexto, setInputTexto] = useState("")
-    const [InputProfissao, setInputProfissao] = useState("")
-   
 
+   
     const onChangeInputPlaneta = (event) => {
         setInputPlaneta (event.target.value)
-    }
-
-    const onChangeInputNome = (event) => {
-        setInputNome (event.target.value)
-    }
-
-    const onChangeInputIdade = (event) => {
-        setInputIdade (event.target.value)
-    }
-
-    const onChangeInputTexto = (event) => {
-        setInputTexto (event.target.value)
-    }
-
-    const onChangeInputProfissao = (event) => {
-        setInputProfissao (event.target.value)
-    }
-
-    const onChangeInputPais = (event) => {
-        setEscolhaPais (event.target.value)
     }
 
     const escolhaPlaneta = props.viagens.map ((index) => {
         return <option key={index.id}>{index.planet}</option>      
     })
 
+    useEffect(() => {
+
+        props.getTrips()
+    
+      }, [])
+
     return (
 
         <div>
             <Titulo>Inscreva-se para uma viagem</Titulo>
        
-            <CardCandidatura>
-
-                <Select onChange={onChangeInputPlaneta} 
+            <CardCandidatura onSubmit={cadastrarCandidato}>
+                
+                <Select onChange={onChangeInputPlaneta}
                     value={InputPlaneta}>
                     <option>Escolha um Planeta</option>
                     {escolhaPlaneta}
                 </Select>
 
-                <Inputs onChange={onChangeInputNome} 
-                value={InputNome} 
+                <Inputs
+                onChange={onChange}
+                name={"name"}
+                value={form.name} 
                 type="text" 
                 placeholder="Nome"
+                required
+                pattern={"^.{5,}"}
+                title={"O nome deve ter no mínimo 5 letras"}
                 />
 
-                <Inputs onChange={onChangeInputIdade} 
-                value={InputIdade}
+                <Inputs 
+                onChange={onChange}
+                name={"age"}
+                value={form.age}
                 type="number" 
                 placeholder="Idade"
+                required
+                min={18}
                 />
 
-                <Inputs onChange={onChangeInputTexto} 
-                value={InputTexto}
+                <Inputs 
+                onChange={onChange}
+                name={"applicationText"}
+                value={form.applicationText}
                 type="text"
                 placeholder="Texto da candidatura"
+                required
+                pattern={"^.{30,}"}
+                title={"Preencha no mínimo 30 caracteres"}
                 />
             
-                <Inputs onChange={onChangeInputProfissao} 
-                value={InputProfissao} 
+                <Inputs
+                onChange={onChange}
+                name={"profession"}
+                value={form.profession}
                 type="text" 
                 placeholder="Profissão" 
+                required
+                pattern={"^.{10,}"}
+                title={"Preencha no mínimo 10 caracteres"}
                 />
 
-                <Select onChange={onChangeInputPais} 
-                    value={escolhaPais}>
+                <Select onChange={onChange}
+                    name={"country"}
+                    value={form.country}>
                     <option>Escolha um País</option>
                     <option>Brasil</option>
-                    <option>Estados Unidos</option>
-                    <option>Outro</option>
+                    <option>Argentina</option>
                 </Select>
 
+                <Buttons>Enviar</Buttons>
+                
             </CardCandidatura>
 
             <ContainerButtons>
                 <Buttons onClick={voltar}>Voltar</Buttons>
-                <Buttons>Enviar</Buttons>
             </ContainerButtons>
 
         </div>

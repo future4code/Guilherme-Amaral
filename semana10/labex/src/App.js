@@ -52,7 +52,7 @@ function App() {
           </Route>
 
           <Route exact path={"/trips/application"}>
-            <ApplicationFormPage  viagens={viagens}/>
+            <ApplicationFormPage  viagens={viagens} getTrips={getTrips}/>
           </Route>
 
           <Route exact path={"/login"}>

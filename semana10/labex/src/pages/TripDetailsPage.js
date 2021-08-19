@@ -57,6 +57,7 @@ box-shadow: 0px 2px 5px 0px #7D3996;
 function TripDetailsPage() {
 
     useEffect(() => {
+        
         const token = localStorage.getItem('token')
     
         if (token === null) {
@@ -85,7 +86,8 @@ function TripDetailsPage() {
         headers: {
     
             auth: token
-          }
+        }
+
         })
     
         .then ((res) => {

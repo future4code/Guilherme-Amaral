@@ -104,7 +104,6 @@ function AdminHomePage (props) {
         history.push (`/admin/trips/${id}`)
     }
 
- 
 
     const viagensNaTela = props.viagens.map ((index) => {
 
