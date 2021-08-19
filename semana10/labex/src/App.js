@@ -8,10 +8,13 @@ import CreateTripPage from './pages/CreateTripPage';
 import TripDetailsPage from './pages/TripDetailsPage';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
+import {useHistory} from "react-router-dom"
 
 function App() {
 
   const [viagens, setviagens] = useState ([])
+
+  const history = useHistory()
 
   const getTrips = () => {
 
@@ -19,7 +22,7 @@ function App() {
 
     .then ((res) => {
       setviagens (res.data.trips)
-      console.log(res.data.trips)
+  
     })
     .catch ((err) => {
       alert (err.data)
@@ -31,26 +34,6 @@ function App() {
     getTrips()
 
   }, [])
-
-  const getTripDetail = (id) => {
-
-    axios.get (`https://us-central1-labenu-apis.cloudfunctions.net/labeX/guilherme-amaral-lovelace/trip/${id}`, {
-      
-    headers: {
-
-      Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkNmbjZPd0YyOVU5TDJSYzV0UWo1IiwiZW1haWwiOiJhc3Ryb2RldkBnbWFpbC5jb20uYnIiLCJpYXQiOjE1NzMxNDM4Njh9.mmOrfGKlXpE3pIDUZfS3xV5ZwttOI2Exmoci9Sdsxjs"
-      }
-    })
-
-    .then ((res) => {
-      console.log (res)
-  
-    })
-    .catch ((err) => {
-      console.log (err)
-    })
-
-  }
 
 
   return (
@@ -77,7 +60,7 @@ function App() {
           </Route>
 
           <Route exact path={"/admin/trips/list"}>
-            <AdminHomePage viagens={viagens} getTripDetail={getTripDetail}/>
+            <AdminHomePage viagens={viagens} />
           </Route>
 
           <Route exact path={"/admin/trips/create"}>

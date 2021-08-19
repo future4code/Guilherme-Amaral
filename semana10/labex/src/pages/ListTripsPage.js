@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import {useHistory} from "react-router-dom"
+import axios from 'axios'
 
 const Titulo = styled.h1`
 margin: 40px;
@@ -65,8 +66,7 @@ function ListTripsPage(props) {
         history.push('/trips/application')
     }
 
-    console.log (props.viagens)
-
+    
     const viagensNaTela = props.viagens.map ((index) => {
         return <CardViagens key={index.id}>
         <TituloViagem>{index.name}</TituloViagem>
@@ -74,7 +74,7 @@ function ListTripsPage(props) {
         <TextosCard><strong>Planeta:</strong> {index.planet}</TextosCard>
         <TextosCard><strong>Duração:</strong> {index.durationInDays}</TextosCard>
         <TextosCard><strong>Data:</strong> {index.date}</TextosCard>
-    </CardViagens>
+        </CardViagens>
     })
 
     return (

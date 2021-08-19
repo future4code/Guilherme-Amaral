@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {useHistory} from "react-router-dom"
+import { useEffect } from 'react'
 
 const Titulo = styled.h1`
 margin: 40px;
@@ -48,6 +49,16 @@ border: solid 1px #7D3996;
 border-radius: 5px;
 `
 function CreateTripPage() {
+
+       useEffect(() => {
+        const token = localStorage.getItem('token')
+    
+        if (token === null) {
+            console.log ('Não está logado!')
+            history.push ('/login')
+        }
+    
+    }, [])
 
     const history = useHistory()
 

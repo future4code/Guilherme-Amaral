@@ -1,6 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useState } from 'react'
+import styled, { ThemeConsumer } from 'styled-components'
 import {useHistory} from "react-router-dom"
+import axios from 'axios'
 
 const Titulo = styled.h1`
 margin: 40px;
@@ -43,14 +44,39 @@ border-radius: 5px;
 
 function LoginPage() {
 
+    const [email, setEmail] = useState()
+    const [senha,setSenha] = useState()
+
     const history = useHistory()
 
     const voltar = () => {
         history.goBack()
     }
 
-    const irParaPaginaDeAdministrador = () => {
-        history.push('/admin/trips/list')
+    const onChangeInputEmail = (event) => {
+        setEmail (event.target.value)
+    }
+
+    const onChangeInputSenha = (event) => {
+        setSenha (event.target.value)
+    }
+
+    const login = () => {
+
+        const body = {
+            email: email,
+            password: senha
+        }
+
+        axios.post ('https://us-central1-labenu-apis.cloudfunctions.net/labeX/guilherme-amaral-lovelace/login', body)
+
+        .then ((res) => {
+            localStorage.setItem('token', res.data.token)
+            history.push ("/admin/trips/list")
+        })
+        .catch ((err) => {
+            console.log('deu errado', err)
+        })
     }
 
     return (
@@ -59,13 +85,22 @@ function LoginPage() {
             <Titulo>Login</Titulo>
 
             <CardLogin>
-                <Inputs type="text" placeholder="E-mail"/>
-                <Inputs type="text" placeholder="Senha" />
+
+                <Inputs onChange={onChangeInputEmail}
+                value={email} 
+                type="text" 
+                placeholder="E-mail"/>
+
+                <Inputs type="text" 
+                onChange={onChangeInputSenha} 
+                value={senha} 
+                placeholder="Senha" />
+
             </CardLogin>
 
             <ContainerButtons>
                 <Buttons onClick={voltar}>Voltar</Buttons>
-                <Buttons onClick={irParaPaginaDeAdministrador}>Entrar</Buttons>
+                <Buttons onClick={login}>Enviar</Buttons>
             </ContainerButtons>
         </div>
     )

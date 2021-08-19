@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import {useHistory} from "react-router-dom"
+import {BrowserRouter, Route, Switch, useHistory} from "react-router-dom"
+import axios from 'axios'
+import TripDetailsPage from './TripDetailsPage'
 
 const Titulo = styled.h1`
 margin: 40px;
@@ -44,7 +46,7 @@ padding: 8px;
 font-size: 15px;
 text-align: center;
 `
-const TextoViagem = styled.button`
+const TextoViagem = styled.p`
 padding: 15px;
 background-color: white;
 color: #EA744D;
@@ -72,10 +74,20 @@ grid-template-columns: 1fr 1fr 1fr 1fr;
 justify-content: center;
 `
 
-function AdminHomePage(props) {
+function AdminHomePage (props) {
+
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+    
+        if (token === null) {
+            console.log ('Não está logado!')
+            history.push ('/login')
+        }
+    
+    }, [])
 
     const history = useHistory()
-
+    
     const voltar = () => {
         history.goBack()
     }
@@ -88,33 +100,33 @@ function AdminHomePage(props) {
         history.push('/login')
     }
 
-    const irParaDetalhesViagens = () => {
-        history.push('/admin/trips/:id')
+    const detail = (id) => {
+        history.push (`/admin/trips/${id}`)
     }
 
-    console.log ('chegou', props.viagens)
+ 
 
     const viagensNaTela = props.viagens.map ((index) => {
 
         return <Card key={index.id}>
+
         <ContainerButtons>
-            <ButtonsX>X</ButtonsX> 
+            <Buttons onClick={() => detail(index.id)}>Acessar</Buttons>
         </ContainerButtons>
-          <button onClick={props.getTripDetail}>teste</button>
-        <TextoViagem onClick={irParaDetalhesViagens}>{index.name}</TextoViagem>
+    
+        <TextoViagem >{index.name}</TextoViagem>
         <TextosCard> {index.description}</TextosCard>
         <TextosCard><strong>Planeta:</strong> {index.planet}</TextosCard>
         <TextosCard><strong>Duração:</strong> {index.durationInDays}</TextosCard>
         <TextosCard><strong>Data:</strong> {index.date}</TextosCard>
-        
-    </Card>
+        </Card>
 
     })
 
     return (
 
         <div>
-
+ 
             <Titulo>Painel Administrativo</Titulo>
 
             <ContainerButtons>
@@ -132,3 +144,4 @@ function AdminHomePage(props) {
 }
 
 export default AdminHomePage
+

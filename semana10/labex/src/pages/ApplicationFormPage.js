@@ -92,27 +92,6 @@ function ApplicationFormPage (props) {
         setEscolhaPais (event.target.value)
     }
 
-
-    const paises = () => {
-
-        axios.get ('https://servicodados.ibge.gov.br/api/v1/paises/{paises}')
-
-        .then ((res) => {
-            setEscolhaPais (res.data)
-            console.log (res.data)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-    }
-    
-    useEffect(() => {
-
-        paises()
-    
-      }, [])
-
-    
     const escolhaPlaneta = props.viagens.map ((index) => {
         return <option key={index.id}>{index.planet}</option>      
     })
@@ -151,15 +130,16 @@ function ApplicationFormPage (props) {
                 <Inputs onChange={onChangeInputProfissao} 
                 value={InputProfissao} 
                 type="text" 
-                placeholder="Profisão" 
+                placeholder="Profissão" 
                 />
 
                 <Select onChange={onChangeInputPais} 
                     value={escolhaPais}>
                     <option>Escolha um País</option>
+                    <option>Brasil</option>
+                    <option>Estados Unidos</option>
+                    <option>Outro</option>
                 </Select>
-
-
 
             </CardCandidatura>
 
@@ -167,7 +147,6 @@ function ApplicationFormPage (props) {
                 <Buttons onClick={voltar}>Voltar</Buttons>
                 <Buttons>Enviar</Buttons>
             </ContainerButtons>
-
 
         </div>
     )
