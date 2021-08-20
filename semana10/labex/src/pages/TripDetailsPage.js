@@ -14,14 +14,12 @@ margin-bottom: 15px;
 text-align: center;
 color: #EA744D;
 `
-
 const Card = styled.div `
 margin: 10px auto;
 width: 350px;
 padding: 10px;
 text-align: center;
 `
-
 const CardCandidatos = styled.div `
 box-shadow: 0px 2px 5px 0px #7D3996;
 border-radius: 8px;
@@ -30,7 +28,6 @@ width: 350px;
 padding: 30px;
 text-align: center;
 `
-
 const TextosCard = styled.p `
 padding: 10px;
 font-size: large;
@@ -41,7 +38,6 @@ flex-direction: row;
 justify-content: center;
 margin: 10px;
 `
-
 const Buttons = styled.button `
 margin: 20px 20px ;
 padding: 15px;
@@ -69,6 +65,7 @@ function TripDetailsPage() {
     
     const [listaDetalhes, setlistaDetalhes] = useState ([])
     const [listaCandidatos, setListaCandidatos] = useState ([])
+    const [listaDeAprovados, setListaDeAprovados] = useState ([])
 
     const history = useHistory()
     const params = useParams()
@@ -93,6 +90,7 @@ function TripDetailsPage() {
         .then ((res) => {
           setlistaDetalhes (res.data.trip)
           setListaCandidatos (res.data.trip.candidates)
+          setListaDeAprovados (res.data.trip.approved)
           
         })
     
@@ -108,6 +106,64 @@ function TripDetailsPage() {
     
     }, [])
 
+    const aprovacaoCandidato = (id) => {
+
+        const body = {
+
+            approve: true
+        }
+
+        const token = localStorage.getItem('token')
+
+        axios.put (`https://us-central1-labenu-apis.cloudfunctions.net/labeX/guilherme-amaral-lovelace/trips/${params.id}/candidates/${id}/decide`, body, {
+
+        headers: {
+
+            "Content-Type": "application/json",
+            auth: token
+        }
+
+        })
+
+        .then ((res) => {
+            console.log ('foi', res.data)
+            
+        })
+        .catch((err) => {
+            console.log (err)
+        })
+
+    }
+
+    const reprovaCandidato = (id) => {
+
+        const body = {
+
+            approve: false
+        }
+
+        const token = localStorage.getItem('token')
+
+        axios.put (`https://us-central1-labenu-apis.cloudfunctions.net/labeX/guilherme-amaral-lovelace/trips/${params.id}/candidates/${id}/decide`, body, {
+
+        headers: {
+
+            "Content-Type": "application/json",
+            auth: token
+        }
+
+        })
+
+        .then ((res) => {
+            console.log ('foi', res.data)
+            
+        })
+        .catch((err) => {
+            console.log (err)
+        })
+
+    }
+
     const listaCandidatosNaTela = listaCandidatos.map ((candidato) => {
         return <CardCandidatos key={candidato.id}>
 
@@ -118,13 +174,20 @@ function TripDetailsPage() {
         <TextosCard><strong>Texto de Candidatura:</strong> {candidato.applicationText}</TextosCard>
 
         <ContainerButtons>
-            <Buttons>Aprovar</Buttons>
-            <Buttons>Reprovar</Buttons>
+            <Buttons onClick={() => aprovacaoCandidato (candidato.id)}>Aprovar</Buttons>
+            <Buttons onClick={() => reprovaCandidato (candidato.id)}>Reprovar</Buttons>
         </ContainerButtons>
 
     </CardCandidatos>
     })
-  
+
+    const listaNaTelaAprovados = listaDeAprovados.map ((index) => {
+        return <CardCandidatos key={index.id}>
+            <TextosCard>{index.name}</TextosCard>
+        </CardCandidatos>
+    })
+
+
     return (
 
         <div>
@@ -146,11 +209,8 @@ function TripDetailsPage() {
             {listaCandidatosNaTela}
 
             <Titulo>Candidatos Aprovados</Titulo>
-
-            <CardCandidatos>
-            <TextosCard>Guilherme</TextosCard>
-            </CardCandidatos>
-
+            {listaNaTelaAprovados}
+        
         </div>
     )
 }

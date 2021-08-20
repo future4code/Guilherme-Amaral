@@ -14,11 +14,11 @@ const ContainerButtons = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: center;
-margin: 10px;
+
 `
 
 const Buttons = styled.button `
-margin: 40px 20px ;
+margin: 20px 20px ;
 padding: 15px;
 background-color: #EA744D;
 color: white;
@@ -67,10 +67,6 @@ function ApplicationFormPage (props) {
 
     const cadastrarCandidato = (event) => {
 
-        event.preventDefault()
-        console.log ('form enviado', form)
-        cleanFields()
-
         const body = {
 
             name: form.name, 
@@ -97,7 +93,12 @@ function ApplicationFormPage (props) {
             console.log (err)
         })
 
+        event.preventDefault()
+        console.log ('form enviado', form)
+        cleanFields()
+
     }
+
 
     const history = useHistory()
 
@@ -114,8 +115,9 @@ function ApplicationFormPage (props) {
     }
 
     const escolhaPlaneta = props.viagens.map ((index) => {
-        return <option key={index.id}>{index.planet}</option>      
-    })
+        return <option key={index.id}>{index.planet}</option>  
+                 
+    })         
 
     useEffect(() => {
 
@@ -134,6 +136,7 @@ function ApplicationFormPage (props) {
                     value={InputPlaneta}>
                     <option>Escolha um Planeta</option>
                     {escolhaPlaneta}
+                    <Buttons>Inscrever-se</Buttons>
                 </Select>
 
                 <Inputs

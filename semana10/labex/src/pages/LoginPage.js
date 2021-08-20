@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styled, { ThemeConsumer } from 'styled-components'
+import styled from 'styled-components'
 import {useHistory} from "react-router-dom"
 import axios from 'axios'
 
@@ -13,10 +13,9 @@ const ContainerButtons = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: center;
-margin: 10px;
 `
 const Buttons = styled.button `
-margin: 40px 20px ;
+margin: 20px 20px ;
 padding: 15px;
 background-color: #EA744D;
 color: white;

@@ -7,7 +7,11 @@ const Logo = styled.img `
 height: 300px;
 width: 500px;
 `
-
+const Titulo = styled.h1`
+text-align: center;
+color: #7D3996;
+padding: 10px;
+`
 const ContainerLogo = styled.div `
 display: flex;
 align-items: center;
@@ -51,6 +55,8 @@ function HomePage() {
             <ContainerLogo>
             <Logo src={logo} />
             </ContainerLogo>
+
+            <Titulo> A Sua Viagem de primeira classe!!</Titulo>
 
             <ContainerButtons>
                 <Buttons onClick={irParaViagens}>Ver Viagens</Buttons>
