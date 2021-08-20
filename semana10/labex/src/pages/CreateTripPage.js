@@ -100,10 +100,12 @@ function CreateTripPage() {
 
         .then ((res) => {
             console.log ('foi', res.data)
+            alert ('Viagem cadastrada')
             cleanFields()
         })
         .catch((err) => {
             console.log (err)
+            alert ('[ERRO], Tente novamente')
         })
 
         event.preventDefault()
@@ -127,6 +129,8 @@ function CreateTripPage() {
             type="text" 
             placeholder="Nome"
             required
+            pattern={"^.{5,}"}
+            title={"O nome deve ter no mínimo 5 letras"}
             />
 
             <Select 
@@ -160,6 +164,8 @@ function CreateTripPage() {
             required
             type="text" 
             placeholder="Descrição"
+            pattern={"^.{30,}"}
+            title={"Preencha no mínimo 30 caracteres"}
             />
 
             <Inputs 
@@ -168,7 +174,8 @@ function CreateTripPage() {
             value={form.durationInDays}
             required
             type="number"
-             placeholder="Duração em dia"
+            placeholder="Duração em dia"
+            min={50}
             />
 
             <Buttons>Criar</Buttons>

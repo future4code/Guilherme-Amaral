@@ -65,7 +65,7 @@ function ApplicationFormPage (props) {
         country: ""
     })
 
-    const cadastrarCandidato = (event) => {
+    const cadastrarCandidato = (event, id) => {
 
         const body = {
 
@@ -109,15 +109,15 @@ function ApplicationFormPage (props) {
   
     const [InputPlaneta, setInputPlaneta] = useState("")
 
-   
     const onChangeInputPlaneta = (event) => {
         setInputPlaneta (event.target.value)
     }
 
     const escolhaPlaneta = props.viagens.map ((index) => {
-        return <option key={index.id}>{index.planet}</option>  
+        return <option value={index.id} key={index.id}>{index.planet}</option>  
                  
-    })         
+    })    
+    
 
     useEffect(() => {
 
@@ -132,8 +132,7 @@ function ApplicationFormPage (props) {
        
             <CardCandidatura onSubmit={cadastrarCandidato}>
                 
-                <Select onChange={onChangeInputPlaneta}
-                    value={InputPlaneta}>
+                <Select onChange={onChangeInputPlaneta} value={InputPlaneta}>
                     <option>Escolha um Planeta</option>
                     {escolhaPlaneta}
                     <Buttons>Inscrever-se</Buttons>

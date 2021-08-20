@@ -116,10 +116,12 @@ function AdminHomePage (props) {
 
         .then ((res) => {
             console.log ('foi', res.data)
+            alert ('Viagem deletada')
             
         })
         .catch((err) => {
             console.log (err)
+            alert ('[Erro], tente novamente')
         })
 
     }
