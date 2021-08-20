@@ -21,7 +21,15 @@ padding: 10px;
 text-align: center;
 `
 const CardCandidatos = styled.div `
-box-shadow: 0px 2px 5px 0px #7D3996;
+box-shadow: 0px 2px 5px 0px #F63E40;
+border-radius: 8px;
+margin: 70px auto;
+width: 350px;
+padding: 30px;
+text-align: center;
+`
+const CardCandidatoss = styled.div `
+box-shadow: 0px 2px 5px 0px green;
 border-radius: 8px;
 margin: 70px auto;
 width: 350px;
@@ -31,6 +39,11 @@ text-align: center;
 const TextosCard = styled.p `
 padding: 10px;
 font-size: large;
+`
+const TextossCard = styled.h1 `
+padding: 10px;
+font-size: 18px;
+color: green;
 `
 const ContainerButtons = styled.div`
 display: flex;
@@ -182,9 +195,9 @@ function TripDetailsPage() {
     })
 
     const listaNaTelaAprovados = listaDeAprovados.map ((index) => {
-        return <CardCandidatos key={index.id}>
-            <TextosCard>{index.name}</TextosCard>
-        </CardCandidatos>
+        return <CardCandidatoss key={index.id}>
+            <TextossCard>{index.name}</TextossCard>
+        </CardCandidatoss>
     })
 
 
