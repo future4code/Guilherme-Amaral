@@ -47,7 +47,7 @@ border: solid 1px #7D3996;
 border-radius: 5px;
 `
 
-function CreateTripPage() {
+function CreateTripPage(props) {
 
        useEffect(() => {
         const token = localStorage.getItem('token')
@@ -99,17 +99,17 @@ function CreateTripPage() {
         })
 
         .then ((res) => {
-            console.log ('foi', res.data)
             alert ('Viagem cadastrada')
-            cleanFields()
+            props.getTrips()
+            
         })
+
         .catch((err) => {
             console.log (err)
             alert ('[ERRO], Tente novamente')
         })
 
         event.preventDefault()
-        console.log ('form enviado', form)
         cleanFields()
     }
 

@@ -60,11 +60,11 @@ function App() {
           </Route>
 
           <Route exact path={"/admin/trips/list"}>
-            <AdminHomePage viagens={viagens} />
+            <AdminHomePage viagens={viagens} getTrips={getTrips} />
           </Route>
 
           <Route exact path={"/admin/trips/create"}>
-            <CreateTripPage />
+            <CreateTripPage getTrips={getTrips}/>
           </Route>
 
           <Route exact path={"/admin/trips/:id"}>

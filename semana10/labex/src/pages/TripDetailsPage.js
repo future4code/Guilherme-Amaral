@@ -139,12 +139,12 @@ function TripDetailsPage() {
         })
 
         .then ((res) => {
-            console.log ('foi', res.data)
             alert ('Aprovado')
+            getTripDetail()
             
         })
+        
         .catch((err) => {
-            console.log (err)
             alert ('[ERRO], Tente novamente')
         })
 
@@ -170,8 +170,8 @@ function TripDetailsPage() {
         })
 
         .then ((res) => {
-            console.log ('foi', res.data)
             alert ('Reprovado')
+            getTripDetail()
             
         })
         .catch((err) => {

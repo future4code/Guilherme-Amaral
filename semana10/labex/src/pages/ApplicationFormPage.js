@@ -62,13 +62,14 @@ function ApplicationFormPage (props) {
         age: "", 
         applicationText: "", 
         profession: "", 
-        country: ""
+        country: "",
+        select: ""
     })
 
-    const cadastrarCandidato = (event, id) => {
+    const cadastrarCandidato = (event) => {
 
         const body = {
-
+ 
             name: form.name, 
             age: form.age, 
             applicationText: form.applicationText, 
@@ -76,7 +77,7 @@ function ApplicationFormPage (props) {
             country: form.country
         }
 
-        axios.post (`https://us-central1-labenu-apis.cloudfunctions.net/labeX/guilherme-amaral-lovelace/trips/${params.id}/apply`, body, {
+        axios.post (`https://us-central1-labenu-apis.cloudfunctions.net/labeX/guilherme-amaral-lovelace/trips/${form.select}/apply`, body, {
 
         headers: {
 
@@ -86,9 +87,9 @@ function ApplicationFormPage (props) {
         })
 
         .then ((res) => {
-            console.log ('foi', res.data)
-            cleanFields()
+            alert ('Cadastrado com sucesso')
         })
+
         .catch((err) => {
             console.log (err)
         })
@@ -106,12 +107,6 @@ function ApplicationFormPage (props) {
         history.goBack()
     }
 
-  
-    const [InputPlaneta, setInputPlaneta] = useState("")
-
-    const onChangeInputPlaneta = (event) => {
-        setInputPlaneta (event.target.value)
-    }
 
     const escolhaPlaneta = props.viagens.map ((index) => {
         return <option value={index.id} key={index.id}>{index.planet}</option>  
@@ -129,13 +124,12 @@ function ApplicationFormPage (props) {
 
         <div>
             <Titulo>Inscreva-se para uma viagem</Titulo>
-       
+
             <CardCandidatura onSubmit={cadastrarCandidato}>
                 
-                <Select onChange={onChangeInputPlaneta} value={InputPlaneta}>
+                <Select name={"select"} onChange={onChange} value={form.select}>
                     <option>Escolha um Planeta</option>
                     {escolhaPlaneta}
-                    <Buttons>Inscrever-se</Buttons>
                 </Select>
 
                 <Inputs

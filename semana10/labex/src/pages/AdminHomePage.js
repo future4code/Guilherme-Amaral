@@ -115,12 +115,11 @@ function AdminHomePage (props) {
         })
 
         .then ((res) => {
-            console.log ('foi', res.data)
             alert ('Viagem deletada')
-            
+            props.getTrips ()
         })
+        
         .catch((err) => {
-            console.log (err)
             alert ('[Erro], tente novamente')
         })
 
