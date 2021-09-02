@@ -1,12 +1,20 @@
 import React from 'react'
+import useProtectedPage from '../../hooks/useProtectedPage'
+import CreatePost from './CreatePost'
+import { ContainerPrincipal } from './styled'
+import ViewPost from './ViewPost'
+
 
 const FeedPage = () => {
 
+    useProtectedPage()
+
     return (
 
-        <div>
-            <h1>FeedPage</h1>
-        </div>
+        <ContainerPrincipal>
+            <CreatePost />
+            <ViewPost />
+        </ContainerPrincipal>
     )
 }
 

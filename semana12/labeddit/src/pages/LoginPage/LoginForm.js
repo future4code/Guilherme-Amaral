@@ -1,18 +1,41 @@
 import React from 'react'
 import {InputsContainer} from './styled'
-import { Button, TextField } from '@material-ui/core'
+import { TextField } from '@material-ui/core'
 import useForm from '../../hooks/useForm'
+import {BASE_URL} from '../../constantes/urls'
+import axios from 'axios'
+import { useHistory } from 'react-router-dom'
+import { goToFeed } from '../../routers/cordinator'
+import { ButtonEstilizado } from '../FeedPage/styled'
 
 
 const LoginForm = () => {
+
+    const history = useHistory()
 
     const [form, onChange, clear] = useForm({ email: "", password: ""})
 
     const onSubmitForm = (event) => {
         event.preventDefault()
-        console.log (form)
+        login()
+          
     }
 
+    const login = () => {
+        axios.post (`${BASE_URL}/users/login`, form, {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then ((res) => {
+            localStorage.setItem('token', res.data.token)
+            goToFeed(history) 
+            clear()
+        })
+        .catch ((err) => {
+            alert (err.data)
+        })
+    }
 
     return (
             <InputsContainer>
@@ -41,14 +64,14 @@ const LoginForm = () => {
                         type={"password"}
                     /> 
 
-                    <Button
+                    <ButtonEstilizado
                         type={"subimit"}
                         fullWidth
                         variant={"contained"}
                         color={"primary"}
                     >
                         Login
-                    </Button>
+                    </ButtonEstilizado>
                 </form>
             </InputsContainer>
     )

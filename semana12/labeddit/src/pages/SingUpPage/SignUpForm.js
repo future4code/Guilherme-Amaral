@@ -1,20 +1,42 @@
 import React from 'react'
 import {InputsContainer} from './styled'
-import { Button, TextField } from '@material-ui/core'
+import { TextField } from '@material-ui/core'
 import useForm from '../../hooks/useForm'
 import { useHistory } from 'react-router-dom'
+import axios from 'axios'
+import { BASE_URL } from '../../constantes/urls'
+import { ButtonEstilizado } from '../FeedPage/styled'
+import { goToFeed } from '../../routers/cordinator'
+
 
 
 const SignUpForm = () => {
 
     const history = useHistory()
 
-    const [form, onChange, clear] = useForm({ name: "", email: "", password: ""})
+    const [form, onChange, clear] = useForm({ username: "", email: "", password: ""})
 
     const onSubmitForm = (event) => {
         event.preventDefault()
-        console.log (form)
-     
+        singUp()
+        clear()
+    }
+
+    const singUp = () => {
+        axios.post (`${BASE_URL}/users/signup`, form, {
+            headers: {
+                
+                "Content-Type": "application/json"
+            }
+        })
+        .then ((res) => {
+            alert ('Cadastrado')
+            localStorage.setItem('token', res.data.token)
+            goToFeed(history) 
+        })
+        .catch ((err) => {
+            alert (err.data)
+        })
     }
 
 
@@ -24,8 +46,8 @@ const SignUpForm = () => {
                 <form onSubmit={onSubmitForm}>
 
                 <TextField 
-                        name={"name"}
-                        value={form.name}
+                        name={"username"}
+                        value={form.username}
                         onChange={onChange}
                         label={"Nome"}
                         variant={"outlined"}
@@ -58,14 +80,14 @@ const SignUpForm = () => {
                         type={"password"}
                     /> 
 
-                    <Button
+                    <ButtonEstilizado
                         type={"subimit"}
                         fullWidth
                         variant={"contained"}
                         color={"primary"}
                     >
-                        Login
-                    </Button>
+                        Criar
+                    </ButtonEstilizado>
                 </form>
             </InputsContainer>
         </div>

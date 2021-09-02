@@ -6,7 +6,10 @@ import LoginForm from './LoginForm'
 import { useHistory } from 'react-router-dom'
 import { goToSingUp } from '../../routers/cordinator'
 
+
 const LoginPage = () => {
+
+
 
     const history = useHistory()
     return ( 
