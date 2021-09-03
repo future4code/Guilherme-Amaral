@@ -32,6 +32,7 @@ const CardPostPage = (props) => {
 
         .then ((res) => {
             console.log (res)
+            props.getcoments.getData()
         })
         .catch ((err) => {
             console.log (err)
@@ -55,6 +56,7 @@ const CardPostPage = (props) => {
 
         .then ((res) => {
             console.log (res)
+            props.getcoments.getData()
         })
         .catch ((err) => {
             console.log (err)
@@ -71,14 +73,14 @@ const CardPostPage = (props) => {
 
         .then ((res) => {
             console.log (res)
+            props.getcoments.getData()
         })
         .catch ((err) => {
             console.log (err)
         })
     }
 
-
-    console.log (props.coment)
+    
     return (
         
         <CardEstilizado>

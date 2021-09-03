@@ -7,7 +7,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-margin: 40px;
+margin: 20px;
 `
 
 export const CardEstilizado= styled(Card)`

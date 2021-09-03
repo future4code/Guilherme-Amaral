@@ -27,6 +27,7 @@ const CardPostComentarios = (props) => {
     const params = useParams()
 
     const createComment = (params) => {
+        
         axios.post (`${BASE_URL}/posts/${params.id}/comments`, form, {
             headers: {
 
@@ -38,7 +39,7 @@ const CardPostComentarios = (props) => {
 
         .then ((res) => {
             console.log (res)
-        
+            props.getcoments.getData()
         })
         .catch((err)=> {
             console.log (err)

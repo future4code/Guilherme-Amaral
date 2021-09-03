@@ -13,11 +13,18 @@ import CommentIcon from '@material-ui/icons/Comment';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward'
 import DeleteIcon from '@material-ui/icons/Delete'
+import { useEffect } from 'react';
+
 
 const CardViewPost = (props) => {
 
     const history = useHistory()
 
+    useEffect(() => {
+
+        props.getPosts.getData()
+    
+      }, [])
 
     const body = {
         "direction": 1
@@ -36,7 +43,7 @@ const CardViewPost = (props) => {
 
         .then ((res) => {
             console.log (res)
-            
+            props.getPosts.getData()
         })
         .catch ((err) => {
             console.log (err.data)
@@ -60,7 +67,7 @@ const CardViewPost = (props) => {
 
         .then ((res) => {
             console.log (res)
-            window.location.reload()
+            props.getPosts.getData()
         })
         .catch ((err) => {
             console.log (err.data)
@@ -77,7 +84,7 @@ const CardViewPost = (props) => {
 
         .then ((res) => {
             console.log (res)
-        
+            props.getPosts.getData()
         })
         .catch ((err) => {
             console.log (err.data)
@@ -106,9 +113,10 @@ const CardViewPost = (props) => {
         <CardActions>
             <Button onClick={deletePostVote} size="small" color="primary">
                 <DeleteIcon size="small" color="primary"></DeleteIcon>
+                
             </Button>
             <Button onClick={createPostVote} size="small" color="primary">
-                <ArrowUpwardIcon size="small" color="primary"></ArrowUpwardIcon>
+               <ArrowUpwardIcon size="small" color="primary"></ArrowUpwardIcon>
             </Button>
             <Typography variant="body2" color="primary" component="p">
             {props.post.voteSum}

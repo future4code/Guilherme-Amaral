@@ -9,7 +9,7 @@ import axios from 'axios'
 import { BASE_URL } from '../../constantes/urls'
 
 
-const CreatePost = () => {
+const CreatePost = (props) => {
     
     const [form, onChange, clear] = useForm({ title: "", body: ""})
 
@@ -31,7 +31,7 @@ const CreatePost = () => {
         })
         .then ((res) => {
             console.log (res)
-      
+            props.getPosts.getData()
         })
         .catch((err)=> {
             console.log (err.data)
