@@ -10,7 +10,6 @@ import { goToSingUp } from '../../routers/cordinator'
 const LoginPage = () => {
 
 
-
     const history = useHistory()
     return ( 
         

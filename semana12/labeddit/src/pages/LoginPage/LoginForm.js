@@ -7,17 +7,20 @@ import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 import { goToFeed } from '../../routers/cordinator'
 import { ButtonEstilizado } from '../FeedPage/styled'
-
+import { useState } from 'react'
+import { CircularProgress } from '@material-ui/core'
 
 const LoginForm = () => {
 
     const history = useHistory()
 
+    const [isLoading, setIsLoading] = useState (false)
     const [form, onChange, clear] = useForm({ email: "", password: ""})
 
     const onSubmitForm = (event) => {
         event.preventDefault()
         login()
+        setIsLoading (true)
           
     }
 
@@ -33,7 +36,7 @@ const LoginForm = () => {
             clear()
         })
         .catch ((err) => {
-            alert (err.data)
+            console.log (err.data)
         })
     }
 
@@ -70,7 +73,7 @@ const LoginForm = () => {
                         variant={"contained"}
                         color={"primary"}
                     >
-                        Login
+                        {isLoading ? <CircularProgress color={'inherit'} size={24}/> : <>Login</>}
                     </ButtonEstilizado>
                 </form>
             </InputsContainer>

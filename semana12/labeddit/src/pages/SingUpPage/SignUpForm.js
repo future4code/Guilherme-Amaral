@@ -7,19 +7,21 @@ import axios from 'axios'
 import { BASE_URL } from '../../constantes/urls'
 import { ButtonEstilizado } from '../FeedPage/styled'
 import { goToFeed } from '../../routers/cordinator'
-
-
+import { useState } from 'react'
+import { CircularProgress } from '@material-ui/core'
 
 const SignUpForm = () => {
 
     const history = useHistory()
 
+    const [isLoading, setIsLoading] = useState (false)
     const [form, onChange, clear] = useForm({ username: "", email: "", password: ""})
 
     const onSubmitForm = (event) => {
         event.preventDefault()
         singUp()
         clear()
+        setIsLoading (true)
     }
 
     const singUp = () => {
@@ -35,7 +37,7 @@ const SignUpForm = () => {
             goToFeed(history) 
         })
         .catch ((err) => {
-            alert (err.data)
+            console.log (err.data)
         })
     }
 
@@ -86,7 +88,7 @@ const SignUpForm = () => {
                         variant={"contained"}
                         color={"primary"}
                     >
-                        Criar
+                        {isLoading ? <CircularProgress color={'inherit'} size={24}/> : <>Cadastre-se</>}
                     </ButtonEstilizado>
                 </form>
             </InputsContainer>

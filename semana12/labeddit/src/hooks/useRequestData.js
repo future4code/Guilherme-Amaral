@@ -13,6 +13,7 @@ const useRequestData = (initialData, url) => {
         })
         .then ((res) => {
             setData (res.data)
+            
         })
 
         .catch ((err) => {

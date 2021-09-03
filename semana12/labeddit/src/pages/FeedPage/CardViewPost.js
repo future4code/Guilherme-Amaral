@@ -17,7 +17,7 @@ import DeleteIcon from '@material-ui/icons/Delete'
 const CardViewPost = (props) => {
 
     const history = useHistory()
-    
+
 
     const body = {
         "direction": 1
@@ -60,7 +60,7 @@ const CardViewPost = (props) => {
 
         .then ((res) => {
             console.log (res)
-            
+            window.location.reload()
         })
         .catch ((err) => {
             console.log (err.data)
@@ -77,9 +77,10 @@ const CardViewPost = (props) => {
 
         .then ((res) => {
             console.log (res)
+        
         })
         .catch ((err) => {
-            alert (err.data)
+            console.log (err.data)
         })
     }
 

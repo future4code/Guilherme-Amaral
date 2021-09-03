@@ -13,11 +13,10 @@ const ViewPost = () => {
     
     const mostrarPostsNaTela = getPosts.map ((post) => {
       return <div>
-        <CardViewPost key={post.id} post={post}/>
+        <CardViewPost key={post.id} post={post} getPosts={getPosts}/>
       </div>
        
     })
-
 
   return (
     

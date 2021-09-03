@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CardActionArea from '@material-ui/core/CardActionArea'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
@@ -10,7 +10,7 @@ import { BASE_URL } from '../../constantes/urls'
 
 
 const CreatePost = () => {
-
+    
     const [form, onChange, clear] = useForm({ title: "", body: ""})
 
     const onSubmitForm = (event) => {
@@ -31,11 +31,14 @@ const CreatePost = () => {
         })
         .then ((res) => {
             console.log (res)
+      
         })
         .catch((err)=> {
-            alert (err.data)
+            console.log (err.data)
         })
     }
+
+  
 
   return (
     <ContainerPrincipal>  
