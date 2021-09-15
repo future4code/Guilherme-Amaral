@@ -1,12 +1,11 @@
 import React from 'react'
-import TelaInicial from './TelaInicial/TelaInicial';
-
+import Router from './Router/Router'
 
 function App () {
 
   return (
     <div>
-      <TelaInicial />
+      <Router />
     </div>
   );
 }

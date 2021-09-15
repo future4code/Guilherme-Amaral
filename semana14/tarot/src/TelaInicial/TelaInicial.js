@@ -1,37 +1,58 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from '@material-ui/core'
 import { Typography } from '@material-ui/core'
-import { ContainerCartas, ContainerPrincipal } from './styled'
+import { ContainerCartas, ContainerTitulo } from './styled'
 import { ContainerBotaoIniciarJogo } from './styled'
-import tarot from '../assets/tarot.json'
+import { irTelaJogo } from '../Router/Cordinator'
+import axios from 'axios'
+import { useHistory } from 'react-router'
 import CardDasCartas from './CardDasCartas'
-
 
 const TelaInicial = () => {
 
-    const cartas = tarot
-    console.log (cartas.cards)
+    const history = useHistory()
 
-    const cartasParaJogar = cartas.cards.map ((cartas) => {
-        return <CardDasCartas key={cartas.name} cartas={cartas} />
+   const [cartas, setCartas] = useState([])
+
+    const reqCartas = () => {
+
+        axios.get ("tarot.json")
+
+        .then ((res) => {
+            setCartas (res.data.cards)
+            console.log(res)
+        })
+
+        .catch ((err) => {
+            console.log (err)
+        })
+    }
+
+    useEffect(() => {
+        reqCartas()
+    },[])
+
+    console.log ("chegou", cartas)
+
+    const cartasNaTela = cartas.map ((cartas) => {
+        return <CardDasCartas key={cartas.name} cartas={cartas}/>
     })
-
 
     return (
         <div>
 
-        <ContainerPrincipal>
-            <Typography variant='h3' align='center'>Bem-vindo ao Tarot</Typography>
-        </ContainerPrincipal>
+        <ContainerTitulo>
+            <Typography variant='h3' align='center'>BEM-VINDO AO TAROT</Typography>
+        </ContainerTitulo>
 
         <ContainerBotaoIniciarJogo>
-                <Button variant="contained" color="primary" align='center'>
+                <Button onClick={()=> irTelaJogo(history)}variant="contained" color="primary" align='center'>
                     Iniciar o Jogo
                 </Button>
         </ContainerBotaoIniciarJogo>
 
         <ContainerCartas>
-            {cartasParaJogar}
+            {cartasNaTela}
         </ContainerCartas>
 
         </div>

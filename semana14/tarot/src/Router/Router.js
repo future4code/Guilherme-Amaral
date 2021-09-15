@@ -1,9 +1,29 @@
 import React from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import TelaInicial from '../TelaInicial/TelaInicial';
+import TelaJogo from '../TelaJogo/TelaJogo'
+
 
 const Router = () => {
+
     return (
-        <div>
-            <h1>Rotas</h1>
-        </div>
+
+        <BrowserRouter> 
+        <Switch>
+  
+            <Route exact path="/">
+              <TelaInicial />
+            </Route>
+  
+            <Route exact path="/jogo">
+              <TelaJogo />
+            </Route>
+  
+        </Switch>
+        
+      </BrowserRouter>
+
     )
 }
+
+export default Router

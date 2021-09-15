@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Card from '@material-ui/core/Card';
 
-export const ContainerPrincipal = styled.div`
+export const ContainerTitulo = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;

@@ -1,22 +1,16 @@
 import React from 'react';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
 import { CardEstilizado } from './styled';
-
+import tarot from '../assets/tarot.json'
 
 const CardDasCartas = (props) => {
 
+  const imagens = tarot
   return (
 
     <CardEstilizado>
       <CardActionArea>
-        <img src={props.cartas && props.cartas.image}/>
-        <CardContent>
-          <Typography gutterBottom component="p">
-            {props.cartas.name}
-          </Typography>
-        </CardContent>
+        <img src={`https://dkw5ssdvaqf8l.cloudfront.net/static/psr/br/framework/yii/images/content/pt-br/product/tarot/marselha/162x341/${props.cartas.image}`}/>
       </CardActionArea>
     </CardEstilizado>
   );
