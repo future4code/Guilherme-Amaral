@@ -20,7 +20,7 @@ const TelaInicial = () => {
 
         .then ((res) => {
             setCartas (res.data.cards)
-            console.log(res)
+       
         })
 
         .catch ((err) => {
@@ -42,7 +42,7 @@ const TelaInicial = () => {
         <div>
 
         <ContainerTitulo>
-            <Typography variant='h3' align='center'>BEM-VINDO AO TAROT</Typography>
+            <Typography variant='h3' align='center' color='primary'>TAROT</Typography>
         </ContainerTitulo>
 
         <ContainerBotaoIniciarJogo>

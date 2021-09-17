@@ -21,7 +21,7 @@ const TelaJogo = () => {
 
         .then ((res) => {
             setCartas (res.data.cards)
-            console.log(res)
+           
         })
 
         .catch ((err) => {
@@ -58,7 +58,7 @@ const TelaJogo = () => {
         <div>
 
         <ContainerTitulo>
-            <Typography variant='h3' align='center'>SELECIONE UMA CARTA</Typography>
+            <Typography variant='h3' align='center' color="primary">SELECIONE UMA CARTA</Typography>
         </ContainerTitulo>
 
         <ContainerBotaoVoltar>
