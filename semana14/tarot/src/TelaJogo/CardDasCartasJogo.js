@@ -8,7 +8,6 @@ const CardDasCartas = (props) => {
 
   const [carta, setCarta] = useState(true)
 
- 
   const FundoCartas = tarot.imageBackCard
   const FrenteCartas = `https://dkw5ssdvaqf8l.cloudfront.net/static/psr/br/framework/yii/images/content/pt-br/product/tarot/marselha/162x341/${props.cartas.image}`
  

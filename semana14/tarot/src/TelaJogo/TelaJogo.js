@@ -31,16 +31,11 @@ const TelaJogo = () => {
 
     useEffect(() => {
         reqCartas()
+        
+        
     },[])
 
-    console.log ("chegou", cartas)
-
-    const cartasNaTelaJogo = cartas.map ((cartas) => {
-        return <div>
-        <CardDasCartasJogo key={cartas.name} cartas={cartas}/>
-        </div>
-    })
-
+    
     const shuffleArray = (arr) => {
         
         for (let i = arr.length - 1; i > 0; i--) {
@@ -52,7 +47,14 @@ const TelaJogo = () => {
 
     }
 
-    console.log(shuffleArray(cartas))
+
+    const cartasNaTelaJogo = cartas.map ((cartas) => {
+        return <div>
+        <CardDasCartasJogo key={cartas.name} cartas={cartas}/>
+        </div>
+    })
+
+    shuffleArray(cartasNaTelaJogo)
 
     return (
         <div>
