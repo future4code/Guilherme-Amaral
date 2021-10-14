@@ -1,0 +1,21 @@
+CREATE TABLE User_labecommerce (
+id VARCHAR (255) PRIMARY KEY NOT NULL,
+name VARCHAR (255) NOT NULL,
+age INT NOT NULL
+);
+
+CREATE TABLE Products_labecommerce (
+id VARCHAR (255) PRIMARY KEY NOT NULL,
+name  VARCHAR (255) NOT NULL,
+description VARCHAR (255) NOT NULL,
+price INT
+);
+
+CREATE TABLE Ticket_labecommerce (
+id VARCHAR (255) PRIMARY KEY,
+name VARCHAR (255) NOT NULL,
+description VARCHAR (255) NOT NULL,
+price INT NOT NULL,
+origin VARCHAR (255) NOT NULL,
+destination VARCHAR (255) NOT NULL
+);
