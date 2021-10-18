@@ -7,19 +7,22 @@ import { getUser } from './endpoints/getUser';
 import { getProduct } from './endpoints/getProduct';
 import { createTrip } from './endpoints/createTrip';
 import { getTrip } from './endpoints/getTrip';
+import { createPurchase } from './endpoints/createPurshace';
+
 
 const app: Express = express();
 
 app.use(express.json());
 app.use(cors());
 
-app.post("/createUser", createUser)
-app.post("/createProduct", createProduct)
+app.post ("/createUser", createUser)
+app.post ("/createProduct", createProduct)
 app.post ("/createTrip", createTrip)
+app.post ("/createPurshace", createPurchase)
 
-app.get("/getUser", getUser)
-app.get("/getProduct", getProduct)
-app.get("/getTrip", getTrip)
+app.get ("/getUser", getUser)
+app.get ("/getProduct", getProduct)
+app.get ("/getTrip", getTrip)
 
 
 const server = app.listen(process.env.PORT || 3003, () => {
