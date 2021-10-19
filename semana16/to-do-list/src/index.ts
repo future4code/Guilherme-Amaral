@@ -59,6 +59,8 @@ const userById = async (id: number) : Promise <any> => {
     return result[0][0]
 }
 
+
+
 app.get('/user/:id', async (req: Request, res: Response) => {
     let errorCode = 400
 
