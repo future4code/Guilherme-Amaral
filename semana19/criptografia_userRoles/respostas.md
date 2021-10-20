@@ -1,16 +1,17 @@
 Exercício 1: 
-a)	Sim, com as strings existem mais possibilidades de variação podendo combinar letras e números. 
+a)	Round/Cost são métodos de criptografia que possui um fator custo-numérico relacionado a segurança da senha, quanto maior o valor, maior a segurança e também maior o tempo e acesso a aplicação.
+O Salt é o algoritmo que gera uma string aleatória que protege a senha. 
+b)	Criado.
+c)	Criado.
 
-Exercício 2:
-a)	O código acima puxa as informações do banco de dados mysql e cria um endpoint para criar um usuário e inseri-lo na tabela do banco de dados mysql.
+Exercício 2: 
+a)	Primeiro deve ser modificado o endpoint de cadastro, porque, após encripitada a senha sem alteração do endpoint de login o novo usuário não conseguirá se logar. 
+b)	Feito.
+c)	Feito.
+d)	Não é necessário alteração, pois ele utiliza apenas o token e o mesmo não foi modificado com a criptografia.
 
-b)	CREATE TABLE user_auth (
-id VARCHAR (255) PRIMARY KEY,
-email VARCHAR (255) NOT NULL,
-password VARCHAR (255) NOT NULL
-);
-
-c)	Criado 
-
-Exercício 3: 
-a)	Serve para corrigir um erro de parâmetro
+Exercício 4: 
+a)	Feito.
+b)	Feito.
+c)	Feito.
+d)	Feito.
