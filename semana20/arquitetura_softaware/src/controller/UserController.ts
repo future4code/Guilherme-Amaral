@@ -52,16 +52,17 @@ export class UserController {
     public deleteUser = async (req: Request, res: Response) : Promise <void> => {
 
 
-     try{
-        const {id} = req.params
-        const token = req.headers.authorization
+        try{
 
-        await deleteUserBussines({id, token})
+            const {id} = req.params
+            const token = req.headers.authorization
 
-        res.status(200).send("Usuário apagado")
+            await deleteUserBussines({id, token})
 
-     } catch (error: any) {
-         res.status(400).send({error: error.message})
+            res.status(200).send("Usuário apagado")
+
+        } catch (error: any) {
+            res.status(400).send({error: error.message})
      }
     }
 }
