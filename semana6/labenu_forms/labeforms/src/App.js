@@ -45,7 +45,7 @@ class App extends React.Component {
         
         {this.renderizaEtapa()}
         <Bot onClick={this.irParaProximaEtapa}>Proxima Etapa</Bot>
-        
+
       </div>
     )
   }
