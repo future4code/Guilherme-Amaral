@@ -24,6 +24,7 @@ margin-top: 50px;
         padding-left:10px;
 
         border: none;
+        box-shadow: 2px 3px 6px rgba(162, 162, 162, 0.25);
     }
 
     textarea:focus, input:focus, select:focus {

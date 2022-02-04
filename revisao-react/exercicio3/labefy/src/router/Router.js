@@ -3,6 +3,8 @@ import GetPlayList from '../pages/getPlaylist/getPlaylists'
 import CreatePlayLists from '../pages/createPlaylist/CreatePlaylist'
 
 import SlideBar from "../components/slideBar/SlideBar"
+import PlayListTrack from "../pages/playListTrack/PlayListTrack"
+import SearchPlaylist from "../pages/searchPlaylist/SearchPlaylist"
 
 export const Router = () => {
 
@@ -17,6 +19,14 @@ export const Router = () => {
 
                 <Route exact path="/create">
                     <CreatePlayLists />
+                </Route>
+
+                <Route exact path="/playlist/:id">
+                   <PlayListTrack /> 
+                </Route>
+
+                <Route exact path="/search">
+                    <SearchPlaylist />
                 </Route>
             </Switch>
         </BrowserRouter>

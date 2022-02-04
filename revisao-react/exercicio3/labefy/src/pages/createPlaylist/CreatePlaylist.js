@@ -4,6 +4,8 @@ import { useState } from "react"
 import { BASE_URL } from "../../constants/url"
 import { Container, ContainerInputButton } from "./styled"
 
+import { toast } from 'react-toastify'
+
 export const CreatePlaylist = () => {
 
     const [input, setInput] = useState("")
@@ -26,15 +28,17 @@ export const CreatePlaylist = () => {
         })
 
         .then((res) => {
-            alert ("Playlist criada")
+            toast.success("Playlist criada", {
+                theme: "colored"
+            })  
             setInput ("")
         })
         .catch((err) => {
-            console.log (err)
+            toast.warn("digite um gênero musical para criar uma playlist", {
+                theme: "colored"
+            })  
         })
     }
-
-    console.log ('resposta do input', input)
 
     return (
 

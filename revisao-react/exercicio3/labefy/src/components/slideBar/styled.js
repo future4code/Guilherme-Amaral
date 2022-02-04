@@ -9,6 +9,10 @@ text-align: center;
 background-color: #6933ff;
 color: whitesmoke;
 
+.button {
+    margin-top: 300px;
+}
+
 
     h1 {
         margin-top: 20px;

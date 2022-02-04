@@ -1,7 +1,7 @@
 import { useHistory } from "react-router-dom"
 import { ContainerButton, Menu } from "./styled"
 
-import { goToCreatePlaylist, goToPlaylist } from "../../router/cortinator"
+import { goToCreatePlaylist, goToPlaylist, back, searchPlaylist } from "../../router/cortinator"
 
 export const SlideBar = () => {
 
@@ -10,13 +10,14 @@ export const SlideBar = () => {
     return (
 
         <Menu>
-            <h1>Labefy</h1>
+            <h1>Labefy.</h1>
 
             <ContainerButton>
-                <button onClick={() => goToCreatePlaylist(history)}>Criar Playlist</button>
-                <button onClick={() => goToPlaylist(history)}>Acessar Playlist</button>
+                <button onClick={() => goToCreatePlaylist(history)}>Criar playlist</button>
+                <button onClick={() => goToPlaylist(history)}>Acessar playlists</button>
             </ContainerButton>
 
+            <button className="button" onClick={() => searchPlaylist(history)}>Buscar playlists</button>
         </Menu>
     )
 }
