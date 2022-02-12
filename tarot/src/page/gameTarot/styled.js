@@ -13,8 +13,11 @@ overflow-y: scroll;
 
     img {
         margin-bottom: 30px;
-
         height: 340px;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 `
 
@@ -23,7 +26,6 @@ display: flex;
 justify-content: center;
 align-items: center;
 
-width: 100vw;
 height: 60px;
 
 background-color: #EBEBFF;
