@@ -6,11 +6,10 @@ display:flex;
 align-items: center;
 justify-content: center;
 
-weight: 100vw;
 height: 91.5vh;
 
 background-image: url(${background});
-background: width: 100vw;
+background-size: cover;
 
 
     button {
@@ -28,9 +27,7 @@ background: width: 100vw;
         transition: filter 0.2s;
 
         &:hover {
-            brigthess
             cursor: pointer;
-
             filter: brightness(0.9)
         }
     }
