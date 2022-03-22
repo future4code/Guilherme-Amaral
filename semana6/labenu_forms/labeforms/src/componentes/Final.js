@@ -13,7 +13,6 @@ margin: 65px auto;
 text-align: center;
 `
 
-
 class Final extends React.Component {
     render () {
         return (

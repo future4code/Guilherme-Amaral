@@ -41,7 +41,6 @@ class Etapa1 extends React.Component {
                     <List>Qual a sua escolaridade?</List>
                     <input />
                 </List1>
-
             </Form>
         )
     }
